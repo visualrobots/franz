@@ -6,6 +6,8 @@ environment:
   CSC_KEY_PASSWORD:
     secure: t8ypNTPKTmvRfd3hHA4aMOtC5KOFqOw3AsKhpU7140Q=
 
+image: Visual Studio 2015
+
 version: 5.0.0.{build}
 
 install:
