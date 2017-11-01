@@ -78,9 +78,9 @@ const createWindow = async () => {
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  if (isDevMode) {
-    mainWindow.webContents.openDevTools();
-  }
+  // if (isDevMode) {
+  mainWindow.webContents.openDevTools();
+  // }
 
   // Emitted when the window is closed.
   mainWindow.on('close', (e) => {
