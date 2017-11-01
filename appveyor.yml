@@ -11,7 +11,7 @@ image: Visual Studio 2015
 version: 5.0.0.{build}
 
 install:
-  - ps: Install-Product node 7
+  - ps: Install-Product node 8
   - yarn global add windows-build-tools
   - yarn global add gulp-cli@1.2.2
   - yarn global add gulpjs/gulp#4.0
