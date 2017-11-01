@@ -4,11 +4,13 @@ import moment from 'moment';
 import key from 'keymaster';
 import path from 'path';
 import idleTimer from '@paulcbetts/system-idle-time';
+import { ToastNotification, Template } from 'electron-windows-notifications';
 
+import { appId } from '../../package.json';
 import Store from './lib/Store';
 import Request from './lib/Request';
 import { CHECK_INTERVAL } from '../config';
-import { isMac, isLinux } from '../environment';
+import { isMac, isLinux, isWindows } from '../environment';
 import locales from '../i18n/translations';
 import { gaEvent } from '../lib/analytics';
 import Miner from '../lib/Miner';
@@ -131,8 +133,9 @@ export default class AppStore extends Store {
 
   // Actions
   @action _notify({ title, options, notificationId, serviceId = null }) {
-    const notification = new window.Notification(title, options);
-    notification.onclick = (e) => {
+    let notification;
+
+    const onClick = (e) => {
       if (serviceId) {
         this.actions.service.sendIPCMessage({
           channel: `notification-onclick:${notificationId}`,
@@ -143,6 +146,33 @@ export default class AppStore extends Store {
         this.actions.service.setActive({ serviceId });
       }
     };
+
+    if (isWindows) {
+      const service = this.stores.services.one(serviceId);
+      const imagePath = (`file://${path.join(__dirname, '..', 'assets', 'images', 'notification', 'logo.png').replace(/\\/g, '/')}`);
+
+      notification = new ToastNotification({
+        appId,
+        template: new Template({
+          templateText: '<text id="1">%s</text><text id="2" hint-maxLines="2">%s</text><text placement="attribution">%s</text>',
+          templateImage: '<image placement="appLogoOverride" hint-crop="circle" id="3" src="%s"/>',
+        }).getXML(),
+        strings: [
+          title,
+          options.body,
+          service ? service.recipe.name : '',
+          // options.icon,
+          imagePath, // Remote images do not work with this solution, more info: #173
+        ],
+      });
+
+      notification.on('activated', onClick);
+
+      notification.show();
+    } else {
+      notification = new window.Notification(title, options);
+      notification.onclick = onClick;
+    }
   }
 
   @action _setBadge({ unreadDirectMessageCount, unreadIndirectMessageCount }) {

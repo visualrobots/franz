@@ -22,6 +22,36 @@
     "7zip-bin-mac" "^1.0.1"
     "7zip-bin-win" "^2.1.0"
 
+"@nodert-win10/windows.applicationmodel@^0.2.95":
+  version "0.2.96"
+  resolved "https://registry.yarnpkg.com/@nodert-win10/windows.applicationmodel/-/windows.applicationmodel-0.2.96.tgz#bf9321f31901de470f71634a95915b1b501f8ebd"
+  dependencies:
+    nan latest
+
+"@nodert-win10/windows.data.xml.dom@^0.2.95":
+  version "0.2.96"
+  resolved "https://registry.yarnpkg.com/@nodert-win10/windows.data.xml.dom/-/windows.data.xml.dom-0.2.96.tgz#45f1f506b6375f585dae5b5d02c30d601c02d454"
+  dependencies:
+    nan latest
+
+"@nodert-win10/windows.foundation@^0.2.95":
+  version "0.2.96"
+  resolved "https://registry.yarnpkg.com/@nodert-win10/windows.foundation/-/windows.foundation-0.2.96.tgz#beb20661d87fb352f9c5c7c45899bf3c24d78cd0"
+  dependencies:
+    nan latest
+
+"@nodert-win10/windows.ui.notifications@^0.2.95":
+  version "0.2.96"
+  resolved "https://registry.yarnpkg.com/@nodert-win10/windows.ui.notifications/-/windows.ui.notifications-0.2.96.tgz#0b039e06a0c0466ec2e8f27ab87cb109064bd0b0"
+  dependencies:
+    nan latest
+
+"@nodert-win10/windows.ui.startscreen@^0.2.95":
+  version "0.2.96"
+  resolved "https://registry.yarnpkg.com/@nodert-win10/windows.ui.startscreen/-/windows.ui.startscreen-0.2.96.tgz#aae9120278b213767b82534fe51eaef864491d8a"
+  dependencies:
+    nan latest
+
 "@paulcbetts/cld@^2.4.6":
   version "2.4.6"
   resolved "https://registry.yarnpkg.com/@paulcbetts/cld/-/cld-2.4.6.tgz#a992f6bc43cab212ac2c4488a671cf302f8b62e7"
@@ -2033,6 +2063,22 @@ electron-window-state@^4.1.0:
     jsonfile "^2.2.3"
     mkdirp "^0.5.1"
 
+electron-windows-notifications@^1.1.16:
+  version "1.1.16"
+  resolved "https://registry.yarnpkg.com/electron-windows-notifications/-/electron-windows-notifications-1.1.16.tgz#cc1f039d3da504cd2bc0892b4a2b60e853e2e753"
+  dependencies:
+    debug "^2.5.1"
+    is-electron-renderer "^2.0.1"
+    sanitize-xml-string "^1.1.0"
+    uuid "^3.0.0"
+    xml-escape "^1.1.0"
+  optionalDependencies:
+    "@nodert-win10/windows.applicationmodel" "^0.2.95"
+    "@nodert-win10/windows.data.xml.dom" "^0.2.95"
+    "@nodert-win10/windows.foundation" "^0.2.95"
+    "@nodert-win10/windows.ui.notifications" "^0.2.95"
+    "@nodert-win10/windows.ui.startscreen" "^0.2.95"
+
 electron@^1.7.9:
   version "1.7.9"
   resolved "https://registry.yarnpkg.com/electron/-/electron-1.7.9.tgz#add54e9f8f83ed02f6519ec10135f698b19336cf"
@@ -3334,6 +3380,10 @@ is-dotfile@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/is-dotfile/-/is-dotfile-1.0.3.tgz#a6a2f32ffd2dfb04f5ca25ecd0f6b83cf798a1e1"
 
+is-electron-renderer@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/is-electron-renderer/-/is-electron-renderer-2.0.1.tgz#a469d056f975697c58c98c6023eb0aa79af895a2"
+
 is-equal-shallow@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/is-equal-shallow/-/is-equal-shallow-0.1.3.tgz#2238098fc221de0bcfa5d9eac4c45d638aa1c534"
@@ -4225,7 +4275,7 @@ mute-stream@0.0.7, mute-stream@~0.0.4:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
-nan@^2.0.0, nan@^2.0.5, nan@^2.3.0, nan@^2.3.2:
+nan@^2.0.0, nan@^2.0.5, nan@^2.3.0, nan@^2.3.2, nan@latest:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.7.0.tgz#d95bf721ec877e08db276ed3fc6eb78f9083ad46"
 
@@ -5294,6 +5344,10 @@ sanitize-filename@^1.6.0, sanitize-filename@^1.6.1:
   dependencies:
     truncate-utf8-bytes "^1.0.0"
 
+sanitize-xml-string@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/sanitize-xml-string/-/sanitize-xml-string-1.1.0.tgz#dd86686069ce102b4954912d9c7982037b928768"
+
 sass-graph@^2.1.1:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/sass-graph/-/sass-graph-2.2.4.tgz#13fbd63cd1caf0908b9fd93476ad43a51d1e0b49"
@@ -6200,6 +6254,10 @@ xelement@^1.0.16:
   resolved "https://registry.yarnpkg.com/xelement/-/xelement-1.0.16.tgz#900bb46c20fc2dffadff778a9d2dc36699d0ff7e"
   dependencies:
     sax "^1.2.1"
+
+xml-escape@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/xml-escape/-/xml-escape-1.1.0.tgz#3904c143fa8eb3a0030ec646d2902a2f1b706c44"
 
 xmlbuilder@8.2.2:
   version "8.2.2"
