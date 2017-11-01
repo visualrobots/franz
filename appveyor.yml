@@ -10,8 +10,10 @@ version: 5.0.0.{build}
 
 install:
   - ps: Install-Product node 7
-  - yarn add global gulp-cli@1.2.2
-  - yarn add global gulpjs/gulp#4.0
+  - yarn global add windows-build-tools
+  - yarn global add gulp-cli@1.2.2
+  - yarn global add gulpjs/gulp#4.0
+  - yarn config set msvs_version 2015 --global
   - yarn install
 
 cache:
