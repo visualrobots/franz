@@ -21,7 +21,7 @@
     "precommit": "yarn lint",
     "commit": "git-cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "mkdir ./build && electron-builder install-app-deps"
   },
   "keywords": [],
   "author": "Stefan Malzner <stefan@adlk.io>",
