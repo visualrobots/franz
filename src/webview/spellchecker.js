@@ -1,14 +1,13 @@
 import { SpellCheckHandler, ContextMenuListener, ContextMenuBuilder } from 'electron-spellchecker';
 
 window.spellCheckHandler = new SpellCheckHandler();
-setTimeout(() => {
-  window.spellCheckHandler.attachToInput();
-}, 1000);
 
-// TODO: should we set the language to user settings?
-// window.spellCheckHandler.switchLanguage('en-US');
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('init spellchecker');
+  window.spellCheckHandler.attachToInput();
+}, false);
+
+window.spellCheckHandler.switchLanguage(navigator.language);
 
 const contextMenuBuilder = new ContextMenuBuilder(window.spellCheckHandler);
-const contextMenuListener = new ContextMenuListener((info) => { // eslint-disable-line
-  contextMenuBuilder.showPopupMenu(info);
-});
+const contextMenuListener = new ContextMenuListener(info => contextMenuBuilder.showPopupMenu(info)); // eslint-disable-line
